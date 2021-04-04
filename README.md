@@ -5,11 +5,13 @@ Controls :
 
 Left Paddle
 w - Move up
+
 s - Move Down
 
 Right Paddle :
-Up - Move up
-Down - Move Down
+Up Arrow Key - Move up
+
+Down Arrow Key - Move Down
 
 Space - Pause Game
 ESC - Exit Game
