@@ -87,14 +87,11 @@ public class Game_Manager : MonoBehaviour
             GUIStyle guiStyle = new GUIStyle(GUI.skin.textArea);
             guiStyle.alignment = TextAnchor.UpperCenter;
             GUI.TextArea(new Rect(Screen.width / 2 - 200, Screen.height - 200, 400, 110), debugText, guiStyle);
-            
+            trajectory.enabled = !trajectory.enabled;
         }
-        /*
-        if (GUI.Button(new Rect(Screen.width / 2 - 60, Screen.height - 73, 120, 53), "TOGGLE\nDEBUG INFO"))
-        {
-            isDebugWindowShown = !isDebugWindowShown;
-        }
-        */
+        
+        
+        
         if (score1 == maxscore)
         {
             GUI.Label(new Rect(Screen.width / 6, Screen.height / 2 - 10, 2000, 1000), "PLAYER ONE WINS");
@@ -115,7 +112,9 @@ public class Game_Manager : MonoBehaviour
     {
         isDebugWindowShown = !isDebugWindowShown;
         trajectory.enabled = !trajectory.enabled;
-
+        GameObject BOC = GameObject.Find("BallAtCollision");
+        if (!BOC.activeInHierarchy) BOC.SetActive(true);
+        else BOC.SetActive(false);
     }
     public void restartGame()
     {

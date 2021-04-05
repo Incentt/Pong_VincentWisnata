@@ -12,6 +12,8 @@ public class Ball_Movement : MonoBehaviour
     private Vector2 trajectoryOrigin;
 
     public Game_Manager GM;
+    public AudioSource BounceSound;
+    public AudioSource ScoredSound;
 
 
     public Vector2 TrajectoryOrigin
@@ -65,19 +67,18 @@ public class Ball_Movement : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D coll)
     {
-        /*
+        
         if (coll.collider.tag == "Racket")
         {
-            currentvelocity.x *= -1;
-            Ball.velocity = currentvelocity;
+            BounceSound.Play();
 
         }
         if (coll.collider.tag == "Roof")
         {
-            currentvelocity.y *= -1;
-            Ball.velocity = currentvelocity;
+            BounceSound.Play();
         }
-        */
+        
+
     }
     private void OnCollisionExit(Collision collision)
     {
@@ -97,6 +98,10 @@ public class Ball_Movement : MonoBehaviour
             GM.AddScoreLeft();
             Invoke("ResetGame", 0.5f);
         }
-       
+        if (collision.gameObject.tag == "Wall")
+        {
+            ScoredSound.Play();
+        }
+
     }
 }

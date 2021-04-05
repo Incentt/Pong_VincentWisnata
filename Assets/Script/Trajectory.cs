@@ -11,7 +11,6 @@ public class Trajectory : MonoBehaviour
 
     // Bola "bayangan" yang akan ditampilkan di titik tumbukan
     public GameObject ballAtCollision;
-    public GameObject ballAtCollision2;
 
 
     // Start is called before the first frame update
@@ -97,5 +96,6 @@ public class Trajectory : MonoBehaviour
             ballAtCollision.SetActive(false);
         }
     }
+    
 
 }
